@@ -7,27 +7,28 @@ const userSchema = new mongoose.Schema(
     pseudo: {
       type: String,
       required: true,
-      minLength: 3,
-      maxLength: 55,
+      minlength: 3,
+      maxlength: 55,
       unique: true,
-      trim: true
+      trim: true,
     },
     email: {
       type: String,
       required: true,
       validate: [isEmail],
       lowercase: true,
-      trim: true
+      unique: true,
+      trim: true,
     },
     password: {
       type: String,
       required: true,
       max: 1024,
-      minLength: 6
+      minlength: 6,
     },
     picture: {
       type: [String],
-      default: './uploads/profil/random-user.png',
+      default: "./uploads/profil/random-user.png",
     },
     bio: {
       type: String,
@@ -37,16 +38,16 @@ const userSchema = new mongoose.Schema(
       type: [String],
     },
     following: {
-      type: [String]
+      type: [String],
     },
     likes: {
-      type: [String]
-    }
+      type: [String],
+    },
   },
   {
-    timestamps: true
+    timestamps: true,
   }
-)
+);
 // before DB save
 userSchema.pre('save', async function (next) {
   const salt = await bcrypt.genSalt();
