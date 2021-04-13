@@ -4,8 +4,10 @@ import dogLogo from "../assets/images/logo-dog.png";
 import { UidContext } from "./AppContext";
 import LoginImg from '../assets/images/loggin.svg';
 import Logout from "./Log/Logout";
+import { useSelector } from "react-redux";
 const Navbar = () => {
   const uid = useContext(UidContext);
+  const userData = useSelector((state) => state.userReducer);
 
   return (
     <nav className="navbar">
@@ -19,7 +21,7 @@ const Navbar = () => {
         <ul>
           <li>
             <NavLink exact to="/profil">
-              <h5>Bienvenue 'nom de l'utilisateur</h5>
+              <h5>Bienvenue { userData.pseudo }</h5>
             </NavLink>
           </li>
           <Logout />

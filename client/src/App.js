@@ -1,16 +1,20 @@
 import "antd/dist/antd.css";
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { useDispatch } from "react-redux";
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { getUser } from "./actions/user.actions";
 import { UidContext } from './Components/AppContext';
-import Navbar from "./Components/Navbar";
 import Home from './Pages/Home';
 import Profil from './Pages/Profil';
 import Trending from "./Pages/Trending";
 import './styles/index.scss';
 
+
 function App() {
+  
   const [uid, setUid] = useState(null);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const fetchToken = async () => {
@@ -23,7 +27,9 @@ function App() {
         .catch((err) => console.log("no toke" + err))
     };
     fetchToken();
-    console.log(uid);
+    if (uid) {
+      dispatch(getUser(uid));
+    }
   }, [uid]);
 
   return (
