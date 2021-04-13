@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="91.44mm" height="91.44mm" clip-rule="evenodd" fill-rule="evenodd" image-rendering="optimizeQuality" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" version="1.1" viewBox="0 0 9144 9144" xmlns="http://www.w3.org/2000/svg">
+ <defs>
+  <style type="text/css">.fil1 {fill:#FEFEFE;fill-rule:nonzero} .fil0 {fill:url(#a)}</style>
+  <linearGradient id="a" x1="10043" x2="-898.9" y1="6303" y2="2841" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#48CFAE" offset="0"/>
+   <stop stop-color="#4FC0E8" offset="1"/>
+  </linearGradient>
+ </defs>
+ <polygon class="fil0" points="0 0 9144 0 9144 9144 0 9144"/>
+ <path class="fil1" d="m3694 6519h1756v-1091c0-242-99-461-258-620s-379-258-620-258-461 98-620 258c-159 159-258 378-258 620v1091zm1840 170h-1924c-47 0-85-38-85-85v-1176c0-289 118-550 307-740 190-190 452-308 740-308s550 118 740 308c189 190 307 451 307 740v1176c0 47-38 85-85 85z"/>
+ <path class="fil1" d="m4572 2455c490 0 887 397 887 887 0 245-99 467-260 627-160 161-382 260-627 260-490 0-887-397-887-887 0-245 100-466 260-627 160-160 382-260 627-260zm717 887c0-396-321-717-717-717-198 0-377 80-507 210s-210 309-210 507c0 396 321 718 717 718 198 0 378-81 507-210 130-130 210-310 210-508z"/>
+</svg>

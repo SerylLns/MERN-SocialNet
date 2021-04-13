@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { UidContext } from './Components/AppContext';
+import Navbar from "./Components/Navbar";
 import Home from './Pages/Home';
 import Profil from './Pages/Profil';
 import Trending from "./Pages/Trending";

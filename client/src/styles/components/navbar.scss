@@ -1,0 +1,51 @@
+.navbar{
+  width: 100vw;
+  height: 12vh;
+  background-color: #194350;
+  z-index: 10;
+  display: flex;
+  justify-content: space-around;
+  .logo{
+    height: 100%;
+    margin: 0;
+    width: 40%;
+  }
+  h2{
+    height: 50%;
+    margin: auto;
+  }
+  img{
+    height: 80%;
+    margin: 5px 10px;
+    cursor: pointer;
+  }
+  ul{
+    display: flex;
+    height: 100%;
+    width: 30vw;
+    justify-content: space-around;
+    align-items: center;
+    li{
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+      img{
+        float: right;
+        width: 20%;
+      }
+      a{
+        width: 80%;
+        h5{
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+// .connex{
+//   display: flex;
+//   align-items: center;
+//   // justify-content: space-between;
+//   // width: 3vw;
+// }
