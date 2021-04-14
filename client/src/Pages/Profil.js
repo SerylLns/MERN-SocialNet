@@ -4,6 +4,7 @@ import Log from "../Components/Log/Log";
 import LoginImg from "../assets/images/login-img.png";
 import { UidContext } from "../Components/AppContext";
 import Navbar from "../Components/Navbar";
+import UpdateProfil from "../Components/Profil/UpdateProfil";
 
 const Profil = () => {
   const uid = useContext(UidContext);
@@ -12,9 +13,7 @@ const Profil = () => {
     <>
           <Navbar />
       {uid ? (
-        <>
-          <h1>Update profile</h1>
-        </>
+          <UpdateProfil/>
       ) : (
         <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
           <Col span={16}>

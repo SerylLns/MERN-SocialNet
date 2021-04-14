@@ -1,0 +1,31 @@
+.left-nav-container{
+  position: relative;
+  width: 5vw;
+  padding-bottom: 30px;
+}
+.icons{
+  width: 100%;
+  .icons-bis{
+    a{
+      position: relative;
+      margin: 10px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      img{
+        position: relative;
+        width: 60%;
+      }
+    }
+  }
+}
+.active-left-nav::after{
+    position: absolute;
+    width: 4px;
+    height: 100%;
+    content: "";
+    background-color: $saumon;
+    left: 0px;
+    top: 0;        
+}
