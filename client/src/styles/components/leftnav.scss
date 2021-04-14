@@ -1,5 +1,5 @@
 .left-nav-container{
-  position: relative;
+  position: fixed;
   width: 5vw;
   padding-bottom: 30px;
 }
@@ -10,6 +10,7 @@
       position: relative;
       margin: 10px;
       width: 100%;
+      padding-top: 5px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -22,10 +23,17 @@
 }
 .active-left-nav::after{
     position: absolute;
-    width: 4px;
+    width: 5px;
     height: 100%;
     content: "";
-    background-color: $saumon;
-    left: 0px;
+    animation: navafter 0.7s;
+    background-color: $dark-saumon;
+    right: 0px;
+    border-radius: 12%;
     top: 0;        
+}
+@keyframes navafter{
+  from{
+    height: 0%;
+  }
 }

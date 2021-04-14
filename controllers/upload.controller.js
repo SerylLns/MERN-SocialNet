@@ -29,7 +29,7 @@ module.exports.uploadProfil = async (req, res) => {
   try {
     await UserModel.findByIdAndUpdate(
       req.body.id,
-      { $set: { picture: "./upload/profil/" + fileName } },
+      { $set: { picture: "./uploads/profil/" + fileName } },
       { new: true, upsert: true, setDefaultsOnInsert: true },
       (err, data) => {
         if (!err) return res.send(data);
