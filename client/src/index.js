@@ -6,9 +6,10 @@ import { applyMiddleware, createStore } from 'redux';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 import rootReducer from './reducers';
+import { getAllUsers } from './actions/users.actions';
 
 const store = createStore(rootReducer, applyMiddleware(thunk, logger))
-
+store.dispatch(getAllUsers());
 
 ReactDOM.render(
   <Provider store={store}>

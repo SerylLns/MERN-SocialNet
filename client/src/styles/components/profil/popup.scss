@@ -1,0 +1,71 @@
+.popup-profil-container{
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba( grey, $alpha: .7);
+}
+@keyframes swipeRight{
+  from{
+    transform: translateX(150px) scale(0) rotateZ(90deg);
+    opacity: 0.2; 
+  }
+}
+
+.modal{
+  animation: swipeRight 1s ease-in-out;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  width: 40vw;
+  padding: 20px 10px;
+  background-color: $saumon;
+  border-radius: 12px;
+  .modal-header{
+    margin-bottom: 25px;
+    position: relative;
+    h3{
+      text-align: center;
+    }
+    span{
+      position: absolute;
+      top: -10px;
+      right: 5px;
+      font-weight: 600;
+      font-size: 24px;
+      cursor: pointer;
+      &:hover{
+        transform: rotateZ(360deg);
+        transition: transform 1s;
+      }
+    }
+  }
+  ul{
+      display: flex;
+      flex-direction: column;
+    li{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      width: 90%;
+      margin: auto;
+      img{
+        width: 9%;
+        border-radius: 25%;
+      }
+      h4{ 
+        margin-right: 20%;
+        margin-left: 10px;
+        font-weight: 600;
+        font-size: 15px;
+        margin-bottom: 0;
+      }
+      h1{
+        text-align: right;
+        margin-bottom: 0;
+      }
+    }
+  }
+}

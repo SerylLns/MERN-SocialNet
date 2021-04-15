@@ -1,9 +1,10 @@
 import axios from "axios";
 
-
-export const GET_USER = 'GET_USER';
-export const UPLOAD_PICTURE = 'UPLOAD_PICTURE';
-export const UPDATE_BIO = 'UPDATE_BIO';
+export const GET_USER = "GET_USER";
+export const UPLOAD_PICTURE = "UPLOAD_PICTURE";
+export const UPDATE_BIO = "UPDATE_BIO";
+export const FOLLOW_USER = "FOLLOW_USER";
+export const UNFOLLOW_USER = "UNFOLLOW_USER";
 
 export const getUser = (uid) => {
   return (dispatch) => {
@@ -13,8 +14,8 @@ export const getUser = (uid) => {
         dispatch({ type: GET_USER, payload: res.data });
       })
       .catch((err) => console.log(err));
-  }
-}
+  };
+};
 
 export const uploadPicture = (data, id) => {
   return (dispatch) => {
@@ -25,24 +26,35 @@ export const uploadPicture = (data, id) => {
         return axios
           .get(`${process.env.REACT_APP_API_URL}api/user/${id}`)
           .then((res) => {
-            dispatch({ type: UPLOAD_PICTURE, payload: res.data.picture })
-          })
+            dispatch({ type: UPLOAD_PICTURE, payload: res.data.picture });
+          });
       })
       .catch((err) => console.log(err));
-  }
-}
+  };
+};
 
 export const updateBio = (id, bio) => {
   return (dispatch) => {
     return axios({
-      method: 'PUT',
+      method: "PUT",
       url: `${process.env.REACT_APP_API_URL}api/user/${id}`,
-      data: {bio}
+      data: { bio },
     })
       .then((res) => {
-        dispatch({ type: UPDATE_BIO, payload: bio })
+        dispatch({ type: UPDATE_BIO, payload: bio });
         console.log(res);
       })
       .catch((err) => console.log(err));
-  }
-}
+  };
+};
+
+export const followUser = (followerId, idToFollow) => {
+  return (dispatch) => {
+    return axios({
+      method: "patch",
+      url: `${process.env.REACT_APP_API_URL}api/user/follow/${followerId}`,
+      data: { idToFollow }
+    }).then((res) => { dispatch({ type: FOLLOW_USER, payload: { idToFollow } }) })
+      .catch((err) => { console.log(err) });
+  };
+};
