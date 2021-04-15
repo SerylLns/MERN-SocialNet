@@ -73,6 +73,7 @@
       padding: 10px 45px;
       border-radius: 18px;
       border-top-right-radius: 0;
+      border-bottom-left-radius: 0;
       background-color: rgba($color: $dark-blue, $alpha: 0.8);
       transition: background 0.4s;  
       box-shadow: 1px 1px 12px #f1f1f1;
@@ -86,6 +87,22 @@
     text-align: center;
     margin-top: 3%;
     font-weight: 600;
+  }
+  h5{
+    width: 60%;
+    padding: 15px;
+    border-radius: 18px;
+    font-weight: 600;
+    border-top-right-radius: 0px;
+    text-align: center;
+    font-size: 16px;
+    background-color: $dark-saumon;
+    cursor: pointer;
+    margin: auto;
+    &:hover{
+      transform: translateY(2px);
+      opacity: .9;
+    }
   }
 }
 .divider-profil{

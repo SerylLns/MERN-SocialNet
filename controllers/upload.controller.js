@@ -13,10 +13,10 @@ module.exports.uploadProfil = async (req, res) => {
     ) {
       throw Error("Invalid file");
     }
-    if (req.file.size > 500000) throw Error("Max size");
+    if (req.file.size > 1000000) throw Error("Max size");
   } catch (error) {
     const errors = uploadErrors(error);
-    return res.status(201).json({errors});
+    return res.status(400).json({errors});
   }
 
   const fileName = req.body.name + ".jpg";
@@ -28,7 +28,7 @@ module.exports.uploadProfil = async (req, res) => {
   )
   try {
     await UserModel.findByIdAndUpdate(
-      req.body.id,
+      req.body.userId,
       { $set: { picture: "./uploads/profil/" + fileName } },
       { new: true, upsert: true, setDefaultsOnInsert: true },
       (err, data) => {
