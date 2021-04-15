@@ -34,10 +34,12 @@ module.exports.updateUser = async (req, res) => {
       },
       { new: true, upsert: true, setDefaultsOnInsert: true },
       (err, data) => {
-        if (!err) return res.send(data);
+        if (!err) {
+          return res.send(data)
+        }
         if (err) return res.status(500).send({ message: err });
       }
-    ).select("-password");
+    );
   } catch (error) {
     return res.status(500).json({ message: error });
   }
