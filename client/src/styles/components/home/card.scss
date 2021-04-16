@@ -66,19 +66,32 @@
 .card-footer{
   margin-top: 15px;
   display: flex;
+  height: 20%;
   justify-content: space-between;
   align-items: center;
   .comment-icon{
     display: flex;
     align-items: center;
+    width: auto;
     img{
       width: 40%;
       margin-right: 5px;
       cursor: pointer;
     }
   }
+  .like-container{
+    img{
+      margin-right: 5px;
+      width: 3vw;
+      margin-left: auto ;
+      
+    }
+  }
   img{
-    width: 4%;
+    width: 5%;
     cursor: pointer;
+    &:hover{
+        transform: scale(1.1);
+    }
   }
 }

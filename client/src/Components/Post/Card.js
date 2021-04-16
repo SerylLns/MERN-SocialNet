@@ -1,16 +1,28 @@
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { dateParser, isEmpty } from "../utils";
 import FollowHandler from "../Profil/FollowHandler";
 import messageIcon from '../../assets/images/message-icon.svg';
 import shareIcon from '../../assets/images/share-icon.svg';
 import LikeButton from "./LikeButton";
-
+import EditIcon from '../../assets/images/edit.svg';
+import { updatePost } from "../../actions/post.action";
+import DeleteCard from "./DeleteCard";
 
 const Card = ({ post }) => {
   const [isLoading, setIsLoading] = useState(true);
+  const [isUpdated, setIsUpdated] = useState(false);
+  const [textUpdate, setTextUpdate] = useState(null);
   const usersData = useSelector((state) => state.usersReducer);
   const userData = useSelector((state) => state.userReducer);
+  const dispatch = useDispatch();
+  
+  const updateItem = () => {
+    if (textUpdate) {
+      dispatch(updatePost(post._id, textUpdate));
+      setIsUpdated(false);
+    }
+  }
 
   useEffect(() => {
     !isEmpty(usersData[0]) && setIsLoading(false);
@@ -29,6 +41,7 @@ const Card = ({ post }) => {
                 usersData
                   .map((user) => {
                     if (user._id === post.posterId) return user.picture;
+                    else return null;
                   })
                   .join("")
               }
@@ -42,7 +55,9 @@ const Card = ({ post }) => {
                   {!isEmpty(usersData[0]) &&
                     usersData
                       .map((user) => {
-                        if (user._id === post.posterId) return user.pseudo;
+                        if (user._id === post.posterId) {
+                          return user.pseudo;
+                        } else return null;
                       })
                       .join("")}
                 </h3>
@@ -53,7 +68,18 @@ const Card = ({ post }) => {
               <span className="card-date">{dateParser(post.createdAt)}</span>
             </div>
             <div className="card-content">
-              <p>{post.message}</p>
+              {isUpdated === false && <p>{post.message}</p>}
+              {isUpdated && (
+                <div className="update-post">
+                  <textarea
+                    defaultValue={post.message}
+                    onChange={(e) => setTextUpdate(e.target.value)}
+                  />
+                  <button onClick={updateItem} className="upload-btn">
+                    Valider modification
+                  </button>
+                </div>
+              )}
               {post.picture && <img src={post.picture} alt="card img" />}
               {post.video && (
                 <iframe
@@ -67,13 +93,21 @@ const Card = ({ post }) => {
                   title={post._id}
                 ></iframe>
               )}
+              {userData._id === post.posterId && (
+                <div className="button-container">
+                  <div onClick={() => setIsUpdated(!isUpdated)}>
+                    <img src={EditIcon} alt="edit" />
+                  </div>
+                  <DeleteCard post={post} />
+                </div>
+              )}
             </div>
             <div className="card-footer">
               <div className="comment-icon">
                 <img src={messageIcon} alt="comment" />
                 <span>{post.comments.length}</span>
               </div>
-                <LikeButton post={ post }/>
+              <LikeButton post={post} />
               <img src={shareIcon} alt="share" />
             </div>
           </div>
