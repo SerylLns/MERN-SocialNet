@@ -22,12 +22,12 @@ const LikeButton = ({ post }) => {
   }, [uid, post.likers, liked]);
 
   const like = () => {
-    dispatch(likePost(post._id, uid));
     setLiked(true);
+    dispatch(likePost(post._id, uid));
   };
   const unlike = () => {
-    dispatch(unlikePost(post._id, uid));
     setLiked(false);
+    dispatch(unlikePost(post._id, uid));
   };
 
   return (
