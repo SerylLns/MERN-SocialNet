@@ -58,6 +58,7 @@
       margin-bottom: 10px;
     }
     img, video {
+      background-color: white;
       width: 100%;
       max-height: 300px;
       box-shadow: 0px 0px 8px white;
@@ -75,13 +76,15 @@
     align-items: center;
     width: auto;
     img{
-      border-radius: 25%;
-      background-color: white;
       padding: 5px;
       width: 50%;
       margin-right: 5px;
       cursor: pointer;
     }
+  }
+  span{
+    color: $dark-blue;
+    font-weight: 600;
   }
   .like-container{
     img{

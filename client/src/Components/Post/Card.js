@@ -2,12 +2,13 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { dateParser, isEmpty } from "../utils";
 import FollowHandler from "../Profil/FollowHandler";
-import messageIcon from '../../assets/images/message-icon.svg';
-import shareIcon from '../../assets/images/share-icon.svg';
+import messageIcon from "../../assets/images/message-icon.svg";
+import shareIcon from "../../assets/images/share-icon.svg";
 import LikeButton from "./LikeButton";
-import EditIcon from '../../assets/images/edit.svg';
+import EditIcon from "../../assets/images/edit.svg";
 import { updatePost } from "../../actions/post.action";
 import DeleteCard from "./DeleteCard";
+import CardComments from "./CardComments";
 
 const Card = ({ post }) => {
   const [isLoading, setIsLoading] = useState(true);
@@ -16,13 +17,14 @@ const Card = ({ post }) => {
   const usersData = useSelector((state) => state.usersReducer);
   const userData = useSelector((state) => state.userReducer);
   const dispatch = useDispatch();
-  
+  const [openComments, setOpenComments] = useState(false);
+
   const updateItem = () => {
     if (textUpdate) {
       dispatch(updatePost(post._id, textUpdate));
-      setIsUpdated(false);
     }
-  }
+    setIsUpdated(false);
+  };
 
   useEffect(() => {
     !isEmpty(usersData[0]) && setIsLoading(false);
@@ -103,13 +105,17 @@ const Card = ({ post }) => {
               )}
             </div>
             <div className="card-footer">
-              <div className="comment-icon">
+              <div
+                onClick={() => setOpenComments(!openComments)}
+                className="comment-icon"
+              >
                 <img src={messageIcon} alt="comment" />
                 <span>{post.comments.length}</span>
               </div>
               <LikeButton post={post} />
               <img src={shareIcon} alt="share" />
             </div>
+            {openComments && <CardComments post={post} />}
           </div>
         </>
       )}
