@@ -1,0 +1,84 @@
+.card-container{
+  position: relative;
+  border: 1px solid $light-blue;
+  width: 90%;
+  background-color: rgba($color: $light-blue, $alpha: .2);
+  margin: auto;
+  border-radius: 12px;
+  display: flex;
+  padding: 20px;
+  margin-bottom: 10px;
+  box-shadow: 0px 1px 2px gray;
+  .card-left{
+    width: 7%;
+    img{
+      width: 100%;
+      border-radius: 12px;
+    }
+  }
+}
+.card-right{
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  .card-header{
+    padding: 3px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    h3{
+      font-size: 15px;
+      font-weight: 600;
+      margin-left: 5px;
+    }
+    img{
+      margin-left: 5px;
+      width: 20%;
+      cursor: pointer;
+    }
+    .card-date{
+      margin-left: auto;
+      align-self: flex-end;
+      font-style: italic;
+      font-weight: 300;
+      font-size: 12px;
+      color: rgba($color: grey, $alpha: .7);
+    }
+  }
+  .card-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    p{
+      width: 90%;
+      font-family: 'Buda', cursive;
+      font-weight: bold;
+      margin: auto;
+      margin-bottom: 10px;
+    }
+    img, video {
+      width: 100%;
+      max-height: 300px;
+      box-shadow: 0px 0px 8px white;
+    }
+  }
+}
+.card-footer{
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .comment-icon{
+    display: flex;
+    align-items: center;
+    img{
+      width: 40%;
+      margin-right: 5px;
+      cursor: pointer;
+    }
+  }
+  img{
+    width: 4%;
+    cursor: pointer;
+  }
+}
