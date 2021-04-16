@@ -1,4 +1,12 @@
-import { ADD_COMMENT, DELETE_POST, GET_POST, LIKE_POST, UNLIKE_POST, UPDATE_POST } from "../actions/post.action";
+import {
+  ADD_COMMENT,
+  DELETE_POST,
+  EDIT_COMMENT,
+  GET_POST,
+  LIKE_POST,
+  UNLIKE_POST,
+  UPDATE_POST,
+} from "../actions/post.action";
 
 export const initialState = {};
 
@@ -23,8 +31,9 @@ export default function postReducer(state = initialState, action) {
         if (post._id === action.payload.postId) {
           return {
             ...post,
-            likers: post.likers.filter((id) => { return id !== action.payload.userId
-          })
+            likers: post.likers.filter((id) => {
+              return id !== action.payload.userId;
+            }),
           };
         }
         return post;
@@ -35,25 +44,45 @@ export default function postReducer(state = initialState, action) {
         if (post._id === action.payload.postId) {
           return {
             ...post,
-            message: action.payload.message
-          }  
+            message: action.payload.message,
+          };
         }
         return post;
-      })
-    
+      });
+
     case DELETE_POST:
-      return state.filter((post) => post._id !== action.payload.postId)
-    
+      return state.filter((post) => post._id !== action.payload.postId);
+
     case ADD_COMMENT:
       return state.map((post) => {
         if (post._id === action.payload.postId) {
           return {
             ...post,
-            comments: action.payload.comments
-          }
+            comments: action.payload.comments,
+          };
         }
-        return post
-      })
+        return post;
+      });
+
+    case EDIT_COMMENT:
+      return state.map((post) => {
+        if (post._id === action.payload.postId) {
+          return {
+            ...post,
+            comments: post.comments.map((comment) => {
+              if (comment._id === action.payload.commentId) {
+                return {
+                  ...comment,
+                  text: action.payload.text,
+                };
+              }
+              return comment;
+            }),
+          };
+        }
+        return post;
+      });
+
     default:
       return state;
   }
