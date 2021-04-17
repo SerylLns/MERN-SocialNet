@@ -1,8 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
 import { UidContext } from "../AppContext";
 import { useDispatch, useSelector } from "react-redux";
-import { editComment } from "../../actions/post.action";
-
+import { deleteComment, editComment } from "../../actions/post.action";
+import EditIcon from "../../assets/images/edit.svg";
+import deleteIcon from "../../assets/images/delete.svg";
 
 const EditDeleteComment = ({ comment, postId }) => {
   const [isAuthor, setIsAuthor] = useState(false);
@@ -21,8 +22,13 @@ const EditDeleteComment = ({ comment, postId }) => {
     e.preventDefault();
     if (text) {
       dispatch(editComment(postId, comment._id, text));
-      setEdit(false);
     }
+    setEdit(false);
+  };
+
+  const handleDelete = () => {
+    dispatch(deleteComment(postId, comment._id));
+
   };
 
   return (
@@ -33,7 +39,11 @@ const EditDeleteComment = ({ comment, postId }) => {
             setEdit(!edit);
           }}
         >
-          imgEdit
+          <img
+            style={{ width: "25px" }}
+            src={EditIcon}
+            alt="edit-comment"
+          ></img>
         </span>
       )}
       {isAuthor && edit && (
@@ -41,14 +51,27 @@ const EditDeleteComment = ({ comment, postId }) => {
           <label htmlFor="text" onClick={() => setEdit(!edit)}>
             Editer
           </label>
-          <br/>
+          <br />
           <input
             defaultValue={comment.text}
             type="text"
             name="text"
             onChange={(e) => setText(e.target.value)}
           />
-          <input type="submit" value="Valider les modifs"/>
+          <div className="btn-edit-comment">
+            <div
+              onClick={() => {
+                if (
+                  window.confirm("Voulez-vous vraiment supprimer ce commentaire ?")
+                ) {
+                  handleDelete();
+                }
+              }}
+            >
+              <img src={deleteIcon} style={{ width: "25px" }} alt="" />
+            </div>
+            <input type="submit" value="Valider les modifs" />
+          </div>
         </form>
       )}
     </div>

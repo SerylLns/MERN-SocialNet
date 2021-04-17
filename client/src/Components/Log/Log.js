@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import SignInForm from "./SignInForm";
 import SignUpForm from "./SignUpForm";
 
-const Log = () => {
+const Log = (props) => {
   const [signUpModal, setSignUpModal] = useState(true);
   const [signInModal, setSignInModal] = useState(false);
 
@@ -17,8 +17,8 @@ const Log = () => {
     }
   }
   return (
-    <div className="log-container">
-      <h1 style={{textAlign:'center', color: '$dark-blue'}}>Inscription</h1>
+    <div className={props.page ? "log-container-home" : "log-container"}>
+      <h1 style={{ textAlign: "center", color: "$dark-blue" }}>Inscription</h1>
       <ul className="buttons-log">
         <li
           onClick={handleModals}

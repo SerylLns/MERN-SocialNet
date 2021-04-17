@@ -5,6 +5,22 @@
   height: 90vh;
   width: 100%;
 }
+.log-container-home{
+  position: relative;
+  padding: 5vh 5vw;
+  background-color: $light-blue;
+  border-radius: 16px;
+  width: 60%;
+  margin-left: 30px;
+  margin-top: 8px;
+  // margin: auto;
+  h1{
+    display: none;
+  }
+  input{
+    margin-bottom: 5px;
+  }
+}
 .buttons-log{
   width: 100%;
   display: flex;
