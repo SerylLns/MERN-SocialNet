@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { addPost, getPost } from "../../actions/post.action";
 import { dateParser, isEmpty, timestampParser } from "../utils";
+import addPictureIcon from '../../assets/images/addpicture-icon.svg';
 
 const NewPostForm = () => {
   const [message, setMessage] = useState("");
@@ -108,7 +109,7 @@ const NewPostForm = () => {
                     height="300"
                     frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media;
-              gyroscope; picture-in-picture"
+                    gyroscope; picture-in-picture"
                     allowFullScreen
                     title={video}
                   ></iframe>
@@ -121,7 +122,7 @@ const NewPostForm = () => {
           <div className="icon">
             {isEmpty(video) && (
               <>
-                <img src="#" alt="photo a mettre" />
+                <img src={addPictureIcon} alt="photo a mettre" />
                 <input
                   type="file"
                   name="file"
@@ -129,9 +130,6 @@ const NewPostForm = () => {
                   onChange={(e) => handlePicture(e)}
                 />
               </>
-            )}
-            {video && (
-              <button onClick={() => setVideo("")}>Supprimer la vidéo</button>
             )}
           </div>
           <div className="btn-send">

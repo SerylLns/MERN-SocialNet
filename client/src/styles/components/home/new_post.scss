@@ -3,7 +3,7 @@
   width: 72%;
   margin-left: 4%;
   border-radius: 16px;
-  background-color: rgba($color: $saumon, $alpha: .6);
+  background-color: rgba($color: $saumon, $alpha: .4);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -38,14 +38,84 @@
     align-items: center;
     width: 100%;
     textarea{
-      width: 92%;
+      width: 90%;
       // margin: auto;
       border: none;
       padding: 7px;
       border-radius: 8px;
+      border-bottom-right-radius: 0;
       &:focus-within{
         outline: none;
       }
     }
+  }
+  .footer-form{
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+  }
+  .icon{
+    width: 8%;
+    margin-top: 5px;
+    position: relative;
+    overflow: hidden;
+    img{
+      width: 90%;
+      cursor: pointer;
+    }
+    input::-webkit-file-upload-button{
+      border: none;
+      position: absolute;
+      left: 0;
+      background-color: transparent;
+      top: 0;
+      cursor: pointer;
+      width: 100%;
+      height: 65%;
+      color: transparent;
+    }
+    input{
+      color: transparent;
+      // visibility: hidden;
+      user-select: none;
+    }
+  }
+  .btn-send{
+    display: flex;
+    flex-direction: column;
+  }
+  .send{
+    padding: 7px 20px;
+    border: none;
+    border-radius: 16px;
+    // border-bottom-left-radius: 1px;
+    border-top-right-radius: 1px;
+    background-color: rgba($color: $dark-blue, $alpha: .8) ;
+    margin-top: 5px;
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    &:hover{
+      background-color: rgba($color: $dark-blue, $alpha: 1);
+      transition: background-color 0.4s;
+    }
+  }
+  .cancel{
+    padding: 7px 20px;
+    border: none;
+    border-radius: 16px;
+    cursor: pointer;
+    border-bottom-left-radius: 1px;
+    color: white;
+    background-color: rgba($color: $dark-saumon, $alpha: .6) ;
+    font-weight: 500;
+    &:hover{
+      background-color: rgba($color: $dark-saumon, $alpha: 1);
+      transition: background-color 0.4s;
+    }
+  }
+  iframe{
+    width: 100%;
+    border-radius: 6px;
   }
 }
