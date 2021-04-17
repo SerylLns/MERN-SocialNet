@@ -60,7 +60,7 @@ const CardComments = ({ post }) => {
         );
       })}
       {userData._id && (
-        <form action="" onSubmit={handleSubmit}>
+        <form action="" className="new-comment" onSubmit={handleSubmit}>
           <input
             type="text"
             name="text"

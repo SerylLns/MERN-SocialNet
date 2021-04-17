@@ -1,10 +1,13 @@
 import axios from "axios";
 
+// POST
 export const GET_POST = "GET_POST";
+export const ADD_POST = "ADD_POST"; 
 export const LIKE_POST = "LIKE_POST";
 export const UNLIKE_POST = "UNLIKE_POST";
 export const UPDATE_POST = "UPDATE_POST";
 export const DELETE_POST = "DELETE_POST";
+// COMMENTS
 export const ADD_COMMENT = "ADD_COMMENT";
 export const EDIT_COMMENT = "EDIT_COMMENT";
 export const DELETE_COMMENT = "DELETE_COMMENT";
@@ -18,6 +21,13 @@ export const getPost = (number) => {
         dispatch({ type: GET_POST, payload: array });
       })
       .catch((err) => console.log(err));
+  };
+};
+
+export const addPost = (data) => {
+  return (dispatch) => {
+    return axios
+      .post(`${process.env.REACT_APP_API_URL}api/post`,data)
   };
 };
 

@@ -40,7 +40,6 @@ const EditDeleteComment = ({ comment, postId }) => {
           }}
         >
           <img
-            style={{ width: "25px" }}
             src={EditIcon}
             alt="edit-comment"
           ></img>
@@ -49,7 +48,7 @@ const EditDeleteComment = ({ comment, postId }) => {
       {isAuthor && edit && (
         <form onSubmit={handleEdit}>
           <label htmlFor="text" onClick={() => setEdit(!edit)}>
-            Editer
+            Editer :
           </label>
           <br />
           <input
@@ -58,7 +57,7 @@ const EditDeleteComment = ({ comment, postId }) => {
             name="text"
             onChange={(e) => setText(e.target.value)}
           />
-          <div className="btn-edit-comment">
+          <div className="btn-delete-comment">
             <div
               onClick={() => {
                 if (
@@ -68,7 +67,7 @@ const EditDeleteComment = ({ comment, postId }) => {
                 }
               }}
             >
-              <img src={deleteIcon} style={{ width: "25px" }} alt="" />
+              <img src={deleteIcon} alt="" />
             </div>
             <input type="submit" value="Valider les modifs" />
           </div>

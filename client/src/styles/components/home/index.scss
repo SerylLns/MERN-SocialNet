@@ -1,12 +1,15 @@
 @import './card.scss';
 @import './comments.scss';
+@import './new_post.scss';
 .main{
   display: flex;
   width: 90%;
+  border: 1px solid red;
   margin: auto;
+  flex-direction: column;
 }
 
-.thread-container{
-  width: 65%;
+.thread-container, .home-header{
+  width: 80%;
   margin-top: 30px;
 }
