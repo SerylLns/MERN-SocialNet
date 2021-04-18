@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const userRoutes = require('./routes/user.routes');
 const postRoutes = require('./routes/post.routes');
 const bodyParser = require("body-parser");
@@ -23,17 +24,21 @@ app.use(cors(corsOptions));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
-
+app.use(express.static('client/build'));
 // JWT
 app.get('*', checkUser);
 app.get('/jwtid', requireAuth, (req, res) => {
   res.status(200).send(res.locals.user.id);
 });
 
+
 // routes
 app.use('/api/user', userRoutes);
 app.use('/api/post', postRoutes)
 
+app.get('/*', (_, res) => {
+  res.sendFile(path.join(__dirname, './client/build/index.html'));
+})
 
 // Server
 app.listen(process.env.PORT, () => {
