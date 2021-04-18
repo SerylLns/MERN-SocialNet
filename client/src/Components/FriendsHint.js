@@ -20,6 +20,7 @@ const FriendsHint = () => {
         ) {
           return array.push(user._id);
         }
+        return null;
       });
       array.sort(() => 0.5 - Math.random());
       array.length = 3;

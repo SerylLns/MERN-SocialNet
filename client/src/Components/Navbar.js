@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
-import dogLogo from "../assets/images/logo-dog.png";
+import dogLogo from "../assets/images/Network.png";
 import { UidContext } from "./AppContext";
 import LoginImg from '../assets/images/loggin.svg';
 import Logout from "./Log/Logout";
@@ -14,7 +14,6 @@ const Navbar = () => {
         <div className='logo'>
         <NavLink exact to="/">
           <img src={dogLogo} alt="logo Chien" />
-          Nom du site
         </NavLink>
         </div>
       {uid ? (

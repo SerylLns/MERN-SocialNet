@@ -2,52 +2,55 @@
   width: 100vw;
   position: sticky;
   top: 0;
-  height: 12vh;
+  height: 10vh;
   background-color: #194350;
   z-index: 10;
   display: flex;
-  justify-content: space-around;
   .logo{
     height: 100%;
     margin: 0;
     width: 40%;
+    overflow-y: hidden;
+    img{
+      height: 160%;
+      margin-top: -15px;
+      box-shadow: 20px 0 100px $dark-saumon;
+      cursor: pointer;
+    }
   }
   h2{
     height: 50%;
     margin: auto;
   }
-  img{
-    height: 80%;
-    margin: 5px 10px;
-    cursor: pointer;
-  }
   ul{
     display: flex;
     height: 100%;
-    width: 30vw;
+    width: 100%;
     justify-content: space-around;
     align-items: center;
+
     li{
       width: 100%;
       display: flex;
       justify-content: flex-end;
       img{
-        float: right;
-        width: 20%;
+        width: 10%;
+        margin-left: auto;
+        margin-right: 5vw;
       }
       a{
         width: 80%;
         h5{
+          margin-top: 10px;
+          font-family: "Indie Flower";
+          color: $saumon;
+          font-size: 33px;
+          letter-spacing: 2px;
+          font-weight: 600;
+          text-align: center;
           width: 100%;
         }
       }
     }
   }
 }
-
-// .connex{
-//   display: flex;
-//   align-items: center;
-//   // justify-content: space-between;
-//   // width: 3vw;
-// }

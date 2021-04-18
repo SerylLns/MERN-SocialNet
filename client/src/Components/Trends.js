@@ -48,7 +48,7 @@ const Trends = () => {
                           usersData &&
                           usersData
                             .map((user) => {
-                              if (user._id === post.id) {
+                              if (user._id === post.posterId) {
                                 return user.picture;
                               } else return null;
                             })
