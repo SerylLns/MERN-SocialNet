@@ -1,0 +1,45 @@
+.trending-container{
+  width: 90%;
+  background-color: rgba($color: $light-blue , $alpha: .8);
+  border-radius: 12px;
+  margin-top: 30px;
+  padding: 15px;
+  h4{
+    font-size: 18px;
+    font-weight: 600;
+    color: $dark-blue;
+  }
+  li{
+    display: flex;
+    // flex-direction: row;
+    align-items: center;
+    width: 100%;
+    padding: 8px 5px;
+    border-radius: 18px;
+    background-color: #f1f1f1;
+    margin-bottom: 8px;
+    .trend-pic{
+      width: 20%;
+      img{
+        border-radius: 16px;
+        width: 80%;
+      }
+    }
+  }
+  .trend-content{
+    margin-top: 5px;
+    width: 70%;
+    p{
+      color: $dark-blue;
+      font-size: 13px;
+      font-weight: 500;
+    }
+    span{
+      float: right;
+      font-weight: 600;
+      color: $dark-saumon;
+      font-size: 15px;
+      letter-spacing: 1px;
+    }
+  }
+}

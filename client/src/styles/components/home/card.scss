@@ -1,7 +1,7 @@
 .card-container{
   position: relative;
   border: 1px solid $light-blue;
-  width: 90%;
+  width: 100%;
   background-color: rgba($color: $light-blue, $alpha: .2);
   margin: auto;
   border-radius: 12px;
@@ -57,11 +57,15 @@
       margin: auto;
       margin-bottom: 10px;
     }
-    img, video {
+    img, iframe {
       background-color: white;
       width: 100%;
-      max-height: 300px;
+      max-height: 250px;
+      border-radius: 4px;
       box-shadow: 0px 0px 8px white;
+    }
+    iframe{
+      min-height: 250px;
     }
   }
 }

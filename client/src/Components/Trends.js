@@ -23,14 +23,14 @@ const Trends = () => {
 
   return (
     <div className="trending-container">
-      <h4>Trending</h4>
+      <h4>Tendances</h4>
       <NavLink exact to="/trending">
         <ul>
           {trendList.length &&
             trendList.map((post) => {
               return (
                 <li key={post._id}>
-                  <div>
+                  <div className="trend-pic">
                     {post.picture && <img src={post.picture} alt="post-pic" />}
                     {post.video && (
                       <iframe

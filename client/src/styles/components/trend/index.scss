@@ -1,0 +1,17 @@
+.trendingPage{
+  width: 100%;
+  .trendingPage-main{
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    width: 90%;
+    flex-direction: row;
+  }
+  .main{
+    display: flex;
+    margin-right: 20px;
+    margin-top: 30px;
+    flex-direction: column;
+    border-left: none;
+  }
+}

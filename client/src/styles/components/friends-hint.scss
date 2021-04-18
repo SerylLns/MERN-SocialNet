@@ -1,0 +1,44 @@
+.get-friends-container{
+  width: 90%;
+  background-color: rgba($color: $light-blue , $alpha: .8);
+  border-radius: 12px;
+  margin-top: 30px;
+  padding: 15px;
+  h4{
+    font-size: 18px;
+    font-weight: 600;
+    color: $dark-blue;
+  }
+  .user-hint{
+    display: flex;
+    // flex-direction: row;
+    align-items: center;
+    width: 100%;
+    padding: 8px 5px;
+    border-radius: 18px;
+    margin-bottom: 8px;
+    img{
+      border-radius: 16px;
+      width: 13%;
+      margin-right: 5px;
+      background-color: white;
+    }
+    p{
+      margin-top: auto;
+      font-weight: 600;
+      color: $dark-blue;
+    }
+    span{
+      margin-left: auto;
+      button{
+        padding: 7px 20px;
+        border: none;
+        border-radius: 16px;
+        cursor: pointer;
+        margin-left: auto;
+        color: white;
+        font-weight: 400;
+      }
+    }
+  }
+}

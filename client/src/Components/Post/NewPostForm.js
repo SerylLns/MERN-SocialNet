@@ -102,12 +102,10 @@ const NewPostForm = () => {
               </div>
               <div className="card-content">
                 <p>{message}</p>
-                <img src={postPicture} alt='post-pics' />
+                { postPicture && <img src={postPicture} alt='post-pics' /> }
                 {video && (
                   <iframe
                     src={video}
-                    width="500"
-                    height="300"
                     frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media;
                     gyroscope; picture-in-picture"

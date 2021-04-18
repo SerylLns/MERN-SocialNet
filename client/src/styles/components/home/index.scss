@@ -4,11 +4,17 @@
 .main{
   display: flex;
   width: 90%;
-  margin: auto;
+  margin-left: auto;
   flex-direction: row;
+  border-left: 2px solid rgba($color: $dark-saumon, $alpha: .6);
 }
 
 .thread-container, .home-header{
-  width: 80%;
+  width: 95%;
+  margin: auto;
   margin-top: 30px;
+  margin-right: 2%;
+}
+.right-side-container{
+  width: 60%;
 }
