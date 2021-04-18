@@ -5,7 +5,12 @@
   "main": "index.js",
   "scripts": {
     "start": "node server.js",
+    "install-client" : "cd client && npm install",
+    "heroku-postbuild": "npm run install-client && npm run build",
     "build": "cd client && npm run build"
+  },
+  "engines": {
+    "node": "14.x"
   },
   "keywords": [],
   "author": "",
