@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { addPost, getPost } from "../../actions/post.action";
-import { dateParser, isEmpty, timestampParser } from "../utils";
+import { isEmpty, timestampParser } from "../utils";
 import addPictureIcon from '../../assets/images/addpicture-icon.svg';
 
 const NewPostForm = () => {
@@ -12,6 +12,7 @@ const NewPostForm = () => {
   const [file, setFile] = useState("");
 
   const userData = useSelector((state) => state.userReducer);
+  const errors = useSelector((state) => state.errorsReducer.postErrors);
   const dispatch = useDispatch()
 
   const handlePicture = (e) => {
@@ -40,23 +41,23 @@ const NewPostForm = () => {
     setFile("");
   };
 
-  const handleVideo = () => {
-    let findLink = message.split(" ");
-    for (let i = 0; i < findLink.length; i++) {
-      if (
-        findLink[i].includes("https://www.yout") ||
-        findLink[i].includes("https://yout")
-      ) {
-        let embed = findLink[i].replace("watch?v=", "embed/");
-        setVideo(embed.split("&")[0]);
-        findLink.splice(i, 1);
-        setMessage(findLink.join(" "));
-        setPostPicture('');
-      }
-    }
-  };
-
+  
   useEffect(() => {
+    const handleVideo = () => {
+      let findLink = message.split(" ");
+      for (let i = 0; i < findLink.length; i++) {
+        if (
+          findLink[i].includes("https://www.yout") ||
+          findLink[i].includes("https://yout")
+        ) {
+          let embed = findLink[i].replace("watch?v=", "embed/");
+          setVideo(embed.split("&")[0]);
+          findLink.splice(i, 1);
+          setMessage(findLink.join(" "));
+          setPostPicture('');
+        }
+      }
+    };
     handleVideo();
   }, [message, video]);
 
@@ -101,7 +102,7 @@ const NewPostForm = () => {
               </div>
               <div className="card-content">
                 <p>{message}</p>
-                <img src={postPicture} />
+                <img src={postPicture} alt='post-pics' />
                 {video && (
                   <iframe
                     src={video}
@@ -118,11 +119,13 @@ const NewPostForm = () => {
             </div>
           </li>
         ) : null}
+        {!isEmpty(errors.format) && <p className="error">{errors.format}</p>}
+        {!isEmpty(errors.maxSize) && <p className="error">{errors.maxSize}</p>}
         <div className="footer-form">
           <div className="icon">
             {isEmpty(video) && (
               <>
-                <img src={addPictureIcon} alt="photo a mettre" />
+                <img src={addPictureIcon} alt="add-pics" />
                 <input
                   type="file"
                   name="file"

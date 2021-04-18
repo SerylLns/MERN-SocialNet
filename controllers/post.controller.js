@@ -21,15 +21,16 @@ module.exports.createPost = async (req, res) => {
 
   if (req.file !== null) {
     try {
-      if (
-        req.file.detectedMimeType !== "image/jpg" &&
-        req.file.detectedMimeType !== "image/png" &&
-        req.file.detectedMimeType !== "image/jpeg "
-      )
-        throw Error("Invalid file");
-
+      // if (
+      //   req.file.detectedMimeType != "image/jpg" ||
+      //   req.file.detectedMimeType != "image/png" ||
+      //   req.file.detectedMimeType != "image/jpeg "
+      // ) {
+      //   throw Error("Invalid file");
+      // }
       if (req.file.size > 500000) throw Error("max size");
     } catch (error) {
+      console.log(error);
       const errors = uploadErrors(error);
       return res.status(201).json({ errors });
     }

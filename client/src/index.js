@@ -7,10 +7,11 @@ import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 import rootReducer from './reducers';
 import { getAllUsers } from './actions/users.actions';
+import { getPost } from './actions/post.action';
 
-const store = createStore(rootReducer, applyMiddleware(thunk, logger))
+const store = createStore(rootReducer, applyMiddleware(thunk))
 store.dispatch(getAllUsers());
-
+store.dispatch(getPost());
 ReactDOM.render(
   <Provider store={store}>
     <App />

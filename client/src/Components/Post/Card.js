@@ -86,8 +86,7 @@ const Card = ({ post }) => {
               {post.video && (
                 <iframe
                   src={post.video}
-                  width="500"
-                  height="300"
+
                   frameborder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media;
               gyroscope; picture-in-picture"

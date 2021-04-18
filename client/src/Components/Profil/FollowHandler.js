@@ -1,16 +1,13 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { followUser, unfollowUser } from "../../actions/user.actions";
 import { isEmpty } from "../utils";
-import Popup from "reactjs-popup";
 import CheckImg from '../../assets/images/checkboxYes.png';
 import NotcheckImg from '../../assets/images/checkboxNot.png';
-import { UidContext } from "../AppContext";
 
 const FollowHandler = ({ idToFollow, type }) => {
   const userData = useSelector((state) => state.userReducer);
   const [isFollowed, setIsFollowed] = useState(false);
-  const uid = useContext(UidContext);
 
   const dispatch = useDispatch();
 

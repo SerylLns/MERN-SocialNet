@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { UidContext } from "../AppContext";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { deleteComment, editComment } from "../../actions/post.action";
 import EditIcon from "../../assets/images/edit.svg";
 import deleteIcon from "../../assets/images/delete.svg";

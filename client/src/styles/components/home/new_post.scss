@@ -96,8 +96,9 @@
     font-weight: 500;
     cursor: pointer;
     &:hover{
+      transform: scale(1.15);
       background-color: rgba($color: $dark-blue, $alpha: 1);
-      transition: background-color 0.4s;
+      transition: background-color, transform 0.4s;
     }
   }
   .cancel{
@@ -110,8 +111,9 @@
     background-color: rgba($color: $dark-saumon, $alpha: .6) ;
     font-weight: 500;
     &:hover{
+      transform: scale(1.15);
       background-color: rgba($color: $dark-saumon, $alpha: 1);
-      transition: background-color 0.4s;
+      transition: background-color, transform 0.4s;
     }
   }
   iframe{
