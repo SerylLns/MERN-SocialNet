@@ -119,7 +119,7 @@ export const addComment = (postId, commenterId, text, commenterPseudo) => {
           type: ADD_COMMENT,
           payload: {
             comments: res.data.comments,
-            postId: postId,
+            postId: postId, 
           },
         });
       })

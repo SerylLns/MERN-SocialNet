@@ -8,7 +8,6 @@ import { useSelector } from "react-redux";
 const Navbar = () => {
   const uid = useContext(UidContext);
   const userData = useSelector((state) => state.userReducer);
-
   return (
     <nav className="navbar">
         <div className='logo'>

@@ -24,7 +24,10 @@ app.use(cors(corsOptions));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
+
+// PRODUCTION
 app.use(express.static('client/build'));
+
 // JWT
 app.get('*', checkUser);
 app.get('/jwtid', requireAuth, (req, res) => {
@@ -37,7 +40,7 @@ app.use('/api/user', userRoutes);
 app.use('/api/post', postRoutes)
 
 app.get('/*', (_, res) => {
-  res.sendFile(path.join(__dirname, './client/build/index.html'));
+  res.sendFile(path.join(__dirname, './client/public/index.html'));
 })
 
 // Server

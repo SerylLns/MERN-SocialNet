@@ -54,3 +54,14 @@
     }
   }
 }
+
+@media only screen and (max-width: 576px) {
+  .navbar{
+    h5{
+      font-size: 18px;
+    }
+    ul li img {
+    width: 25%;
+    }
+  }
+}

@@ -14,8 +14,8 @@ const Card = ({ post }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [isUpdated, setIsUpdated] = useState(false);
   const [textUpdate, setTextUpdate] = useState(null);
+  const userData = useSelector((state) => state.userReducer)
   const usersData = useSelector((state) => state.usersReducer);
-  const userData = useSelector((state) => state.userReducer);
   const dispatch = useDispatch();
   const [openComments, setOpenComments] = useState(false);
 
