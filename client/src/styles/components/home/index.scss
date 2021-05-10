@@ -18,3 +18,20 @@
 .right-side-container{
   width: 60%;
 }
+@media only screen and (max-width: 576px) {
+  .main{
+    overflow-x: hidden;
+    width: 100%;
+    .thread-container{
+      width: 98%;
+      margin: 30px 5px 15px;
+    }
+  }
+  .left-nav-container{
+    width: 14vw;
+    z-index: 5;
+  }
+  .right-side-container{
+    display: none;
+  }
+}

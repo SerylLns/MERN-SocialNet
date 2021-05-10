@@ -27,7 +27,7 @@ const Profil = () => {
               justifyContent: "center",
             }}
           >
-            <img src={LoginImg} alt="Login" />
+            <img src={LoginImg} className="img-login" alt="Login" />
           </Col>
         </Row>
       )}

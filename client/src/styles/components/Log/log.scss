@@ -77,3 +77,15 @@
   padding: 10px;
   border-radius: 6px;
 }
+
+@media only screen and (max-width: 576px) {
+  .log-container{
+    width: 100vw;
+  }
+  .img-login{
+    display: none;
+  }
+  .log-container-home{
+    width: 80vw;
+  }
+}

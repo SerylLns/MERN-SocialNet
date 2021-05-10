@@ -8,6 +8,7 @@
   flex-direction: column;
   justify-content: center;
   padding: 20px;
+  min-height: 250px;
   .data{
     position: absolute;
     top: 20px;
@@ -119,5 +120,14 @@
   iframe{
     width: 100%;
     border-radius: 6px;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .icon{
+    width: 15%;
+    img{
+      width: 35px;
+    }
   }
 }
