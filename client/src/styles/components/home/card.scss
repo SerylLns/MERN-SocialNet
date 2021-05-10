@@ -140,11 +140,20 @@
     img{
       width: 30px;
     }
-  }
-  .like-container{
-    img{
-      width: 30px;
-
+    .like-container{
+      img{
+        width: 30px;
+  
+      }
     }
   }
+}
+
+@media only screen and (max-width: 576px) {
+  .button-container{
+    div{
+      width: 12%;
+    }
+  }
+
 }
